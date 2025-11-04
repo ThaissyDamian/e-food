@@ -27,8 +27,8 @@ export const Banner = styled.div`
   padding: 24px 32px;
 
   background-repeat: no-repeat;
-  background-size: cover, cover, cover;
-  background-position: center, center, center;
+  background-size: cover;
+  background-position: center;
 `
 
 export const TextBanner = styled.span`
