@@ -43,9 +43,8 @@ export const Botao = styled.button`
   background-color: ${cores.bege};
   color: ${cores.coral};
   border: none;
-  padding: 12px;
+  padding: 4px;
   cursor: pointer;
   font-size: 14px;
   font-weight: bold;
-  text-transform: uppercase;
 `

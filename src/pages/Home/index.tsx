@@ -67,15 +67,15 @@ const restaurantes = [
 const Home = () => {
   return (
     <>
+      <Header />
       <Container>
-        <Header />
         <Grid>
           {restaurantes.map((restaurante) => (
             <Restaurant key={restaurante.id} {...restaurante} />
           ))}
         </Grid>
-        <Footer />
       </Container>
+      <Footer />
     </>
   )
 }

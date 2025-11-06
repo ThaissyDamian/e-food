@@ -1,5 +1,5 @@
 import logo from '../../assets/image/logo.svg'
-import fundo from '../../assets/image/fundo.svg'
+import headerimg from '../../assets/image/fundo.svg'
 import { Imagem, Text, Banner, RestaurantName, TextBanner } from './styles'
 import { Container } from '../../styles'
 import { Link } from 'react-router-dom'
@@ -22,7 +22,14 @@ export default function HeaderPerfil({ tipo, titulo, capa }: Props) {
       </Imagem>
       <Banner
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.45)), url(${capa}), url(${fundo})`
+          backgroundImage: `
+      linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.45)),
+      url(${capa}),
+      url(${headerimg})
+    `,
+          backgroundRepeat: 'no-repeat, no-repeat, repeat',
+          backgroundSize: 'cover, cover, auto',
+          backgroundPosition: 'center, center, top left'
         }}
       >
         <Container>

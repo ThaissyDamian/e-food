@@ -19,7 +19,7 @@ export const GlobalCss = createGlobalStyle`
   body {
     background-color: ${cores.brancoRosado};
     color: ${cores.coral};
-    padding-top: 80px;
+  
   }
 
   `

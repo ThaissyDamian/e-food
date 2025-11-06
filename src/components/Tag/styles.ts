@@ -23,11 +23,7 @@ export const TagContainer = styled.div<TagProps>`
 `
 
 export const TagText = styled.span`
-  width: 100%;
   text-align: center;
-  height: 23px;
-  display: inline-block;
-  vertical-align: middle;
 `
 export const Nota = styled.span`
   position: absolute;
