@@ -22,11 +22,11 @@ export default function HeaderPerfil({ tipo, titulo, capa }: Props) {
     <>
       <Imagem>
         <ImagemInner>
-          <Text>Restaurantes</Text>
+          <Text className="left">Restaurantes</Text>
           <Link to="/">
             <img src={logo} alt="Efood" />
           </Link>
-          <Text>0 produto(s) no carrinho</Text>
+          <Text className="right">0 produto(s) no carrinho</Text>
         </ImagemInner>
       </Imagem>
       <Banner

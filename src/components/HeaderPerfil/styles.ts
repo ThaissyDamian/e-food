@@ -17,9 +17,15 @@ export const ImagemInner = styled.div`
   margin: 0 auto;
   padding: 0 32px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  gap: 0;
+`
+export const Logo = styled.img`
+  display: block;
+  margin: 0 auto;
+  width: 125px;
+  height: 57px;
+  justify-self: center;
 `
 
 export const Text = styled.p`
@@ -27,6 +33,14 @@ export const Text = styled.p`
   font-weight: bold;
   color: ${cores.coral};
   margin: 0;
+
+  &.left {
+    justify-self: start;
+  }
+
+  &.right {
+    justify-self: end;
+  }
 `
 
 export const Banner = styled.div`
