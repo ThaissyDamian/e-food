@@ -9,7 +9,6 @@ import {
   ImagemInner,
   BannerInner
 } from './styles'
-import { Container } from '../../styles'
 import { Link } from 'react-router-dom'
 
 type Props = {
