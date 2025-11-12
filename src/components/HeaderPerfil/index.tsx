@@ -1,6 +1,14 @@
 import logo from '../../assets/image/logo.svg'
 import headerimg from '../../assets/image/fundo.svg'
-import { Imagem, Text, Banner, RestaurantName, TextBanner } from './styles'
+import {
+  Imagem,
+  Text,
+  Banner,
+  RestaurantName,
+  TextBanner,
+  ImagemInner,
+  BannerInner
+} from './styles'
 import { Container } from '../../styles'
 import { Link } from 'react-router-dom'
 
@@ -14,11 +22,13 @@ export default function HeaderPerfil({ tipo, titulo, capa }: Props) {
   return (
     <>
       <Imagem>
-        <Text>Restaurantes</Text>
-        <Link to="/">
-          <img src={logo} alt="Efood" />
-        </Link>
-        <Text>0 produto(s) no carrinho</Text>
+        <ImagemInner>
+          <Text>Restaurantes</Text>
+          <Link to="/">
+            <img src={logo} alt="Efood" />
+          </Link>
+          <Text>0 produto(s) no carrinho</Text>
+        </ImagemInner>
       </Imagem>
       <Banner
         style={{
@@ -32,10 +42,10 @@ export default function HeaderPerfil({ tipo, titulo, capa }: Props) {
           backgroundPosition: 'center, center, top left'
         }}
       >
-        <Container>
+        <BannerInner>
           <TextBanner>{tipo}</TextBanner> {/* Italiana */}
           <RestaurantName>{titulo}</RestaurantName>
-        </Container>
+        </BannerInner>
       </Banner>
     </>
   )

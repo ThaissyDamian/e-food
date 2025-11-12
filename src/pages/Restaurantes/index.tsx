@@ -5,8 +5,20 @@ import { Container, ListaPratos } from './styles'
 
 import Pizza from '../../assets/image/pizza.png'
 import BannerRestaurante from '../../assets/image/spaguetti.png'
+import ContainerModal from '../../components/ContainerModal'
+import { useState } from 'react'
+
+interface Produto {
+  id: number
+  nome: string
+  descricao: string
+  foto: string
+}
 
 const Restaurantes = () => {
+  const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(
+    null
+  )
   const restaurante = {
     nome: 'La Dolce Vita Trattoria',
     tipo: 'Italiana',
@@ -64,7 +76,6 @@ const Restaurantes = () => {
         titulo={restaurante.nome}
         capa={restaurante.capa}
       />
-
       <Container>
         <ListaPratos>
           {restaurante.pratos.map((prato) => (
@@ -73,11 +84,17 @@ const Restaurantes = () => {
               nome={prato.nome}
               descricao={prato.descricao}
               imagem={prato.foto}
-              onAdd={() => console.log(`${prato.nome} adicionado`)}
+              onAdd={() => setProdutoSelecionado(prato)}
             />
           ))}
         </ListaPratos>
       </Container>
+      {produtoSelecionado && (
+        <ContainerModal
+          produto={produtoSelecionado}
+          onClose={() => setProdutoSelecionado(null)}
+        />
+      )}
       <Footer />
     </>
   )
