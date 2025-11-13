@@ -1,22 +1,35 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
 
+export const Overlay = styled.div`
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+`
+
+export const Backdrop = styled.div`
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 0;
+`
+
 export const CardModal = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: 1024px;
   height: 344px;
   background-color: ${cores.coral};
   color: ${cores.branco};
   padding: 32px;
-  z-index: 1;
 
   header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
 
     img {
       position: absolute;
@@ -62,17 +75,4 @@ export const ContainerIterno = styled.div`
     line-height: 22px;
     margin-bottom: 16px;
   }
-`
-
-export const Overlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
 `

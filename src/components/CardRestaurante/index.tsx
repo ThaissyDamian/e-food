@@ -6,55 +6,60 @@ import {
   Descricao,
   Botao,
   TagDestaque,
-  Linha
+  Linha,
+  Nota
 } from './styles'
 import { useNavigate } from 'react-router-dom'
 import Tag from '../Tag'
-import { Nota } from './styles'
-
 import estrela from '../../assets/image/estrela.png'
 
 type Props = {
   id: number
-  nome: string
+  titulo: string
   descricao: string
-  imagem: string
+  capa: string
   tipo: string
-  nota: number
-  destaque?: boolean
+  avaliacao: number
+  destacado?: boolean
 }
 
 const CardRestaurante = ({
   id,
-  nome,
+  titulo,
   descricao,
-  imagem,
+  capa,
   tipo,
-  nota,
-  destaque
+  avaliacao,
+  destacado
 }: Props) => {
+  const getDescricao = (descricao: string) => {
+    if (descricao.length > 150) {
+      return descricao.slice(0, 147) + '...'
+    }
+    return descricao
+  }
   const navigate = useNavigate()
 
   return (
     <Card>
       <div style={{ position: 'relative' }}>
-        <Imagem src={imagem} alt={nome} />
+        <Imagem src={capa} alt={titulo} />
         <TagDestaque>
-          {destaque && <Tag size="big">Destaque da semana</Tag>}
+          {destacado && <Tag size="big">Destaque da semana</Tag>}
           <Tag size="small">{tipo}</Tag>
         </TagDestaque>
       </div>
 
       <Conteudo>
         <Linha>
-          <Titulo>{nome}</Titulo>
+          <Titulo>{titulo}</Titulo>
           <Nota>
-            {nota.toFixed(1)}
+            {avaliacao.toFixed(1)}
             <img src={estrela} alt="estrela" />
           </Nota>
         </Linha>
 
-        <Descricao>{descricao}</Descricao>
+        <Descricao>{getDescricao(descricao)}</Descricao>
         <Botao onClick={() => navigate(`/restaurante/${id}`)}>Saiba mais</Botao>
       </Conteudo>
     </Card>

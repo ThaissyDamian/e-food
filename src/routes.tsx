@@ -1,16 +1,12 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
-import Restaurante from './pages/Restaurantes'
-import Product from './pages/Product'
+import RestaurantePage from './pages/Restaurantes'
 
 export const AppRoutes = () => (
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/restaurante/:id" element={<Restaurante />} />
-      <Route path="/product/:id" element={<Product />} />
-    </Routes>
-  </BrowserRouter>
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/restaurante/:id" element={<RestaurantePage />} />
+  </Routes>
 )
 
 export default AppRoutes
