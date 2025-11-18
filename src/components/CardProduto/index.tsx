@@ -13,7 +13,7 @@ const CardProduto = ({ nome, descricao, imagem, onAdd }: Props) => (
     <Conteudo>
       <Nome>{nome}</Nome>
       <Descricao>{descricao}</Descricao>
-      <Botao onClick={onAdd}>Adicionar ao carrinho</Botao>
+      <Botao onClick={onAdd}>Mais detalhes</Botao>
     </Conteudo>
   </Card>
 )

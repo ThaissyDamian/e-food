@@ -1,5 +1,7 @@
 import { CardModal, Backdrop, ContainerIterno, Overlay } from './styles'
-import close from '../../assets/image/close.png'
+import fechar from '../../assets/image/close.png'
+import { useDispatch } from 'react-redux'
+import { add, open } from '../../store/reducers/cart'
 
 type Produto = {
   id: number
@@ -16,33 +18,44 @@ type Props = {
   isVisible?: boolean
 }
 
-const formataPreco = (preco = 0) => {
+export const formataPreco = (preco = 0) => {
   return new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL'
   }).format(preco)
 }
+const ContainerModal = ({ produto, onClose, isVisible = true }: Props) => {
+  const dispatch = useDispatch()
 
-const ContainerModal = ({ produto, onClose, isVisible = true }: Props) => (
-  <Overlay className={isVisible ? 'visivel' : ''}>
-    <Backdrop className="overlay" onClick={onClose} />
+  const addToCart = () => {
+    dispatch(add(produto))
+    dispatch(open())
+    onClose()
+  }
 
-    <CardModal>
-      <header>
-        <img src={close} alt="icone de fechar" onClick={onClose} />
-      </header>
+  return (
+    <Overlay className={isVisible ? 'visivel' : ''}>
+      <Backdrop className="overlay" onClick={onClose} />
 
-      <ContainerIterno>
-        <img src={produto.foto} alt={produto.nome} />
-        <div>
-          <h2>{produto.nome}</h2>
-          <p>{produto.descricao}</p>
-          <p>Serve: {produto.porcao}</p>
-          <button>Adicionar ao carrinho - {formataPreco(produto.preco)}</button>
-        </div>
-      </ContainerIterno>
-    </CardModal>
-  </Overlay>
-)
+      <CardModal>
+        <header>
+          <img src={fechar} alt="icone de fechar" onClick={onClose} />
+        </header>
+
+        <ContainerIterno>
+          <img src={produto.foto} alt={produto.nome} />
+          <div>
+            <h2>{produto.nome}</h2>
+            <p>{produto.descricao}</p>
+            <p>Serve: {produto.porcao}</p>
+            <button onClick={addToCart}>
+              Adicionar ao carrinho - {formataPreco(produto.preco)}
+            </button>
+          </div>
+        </ContainerIterno>
+      </CardModal>
+    </Overlay>
+  )
+}
 
 export default ContainerModal

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import logo from '../../assets/image/logo.svg'
 import headerimg from '../../assets/image/fundo.svg'
 import {
@@ -9,7 +10,8 @@ import {
   ImagemInner,
   BannerInner
 } from './styles'
-import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { RootReducer } from '../../store'
 
 type Props = {
   tipo: string
@@ -17,7 +19,8 @@ type Props = {
   capa: string
 }
 
-export default function HeaderPerfil({ tipo, titulo, capa }: Props) {
+function HeaderPerfil({ tipo, titulo, capa }: Props) {
+  const { items } = useSelector((state: RootReducer) => state.cart)
   return (
     <>
       <Imagem>
@@ -26,7 +29,7 @@ export default function HeaderPerfil({ tipo, titulo, capa }: Props) {
           <Link to="/">
             <img src={logo} alt="Efood" />
           </Link>
-          <Text className="right">0 produto(s) no carrinho</Text>
+          <Text className="right">{items.length} produto(s) no carrinho</Text>
         </ImagemInner>
       </Imagem>
       <Banner
@@ -49,3 +52,4 @@ export default function HeaderPerfil({ tipo, titulo, capa }: Props) {
     </>
   )
 }
+export default HeaderPerfil

@@ -1,11 +1,12 @@
-import { useEffect, useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import { Container } from '../../styles'
 import { Grid } from './styles'
 import CardRestaurante from '../../components/CardRestaurante'
 
-type Restaurante = {
+import { useGetRestaurantesQuery } from '../../services/api'
+
+export type RestauranteLista = {
   id: number
   titulo: string
   destacado: boolean
@@ -16,20 +17,17 @@ type Restaurante = {
 }
 
 const Home = () => {
-  const [restaurantes, setRestaurantes] = useState<Restaurante[]>([])
+  const { data: restaurantes, isLoading } = useGetRestaurantesQuery()
 
-  useEffect(() => {
-    fetch('https://api-ebac.vercel.app/api/efood/restaurantes')
-      .then((response) => response.json())
-      .then((res) => setRestaurantes(res))
-  }, [])
-
+  if (isLoading) {
+    return <p>Carregando restaurantes...</p>
+  }
   return (
     <>
       <Header />
       <Container>
         <Grid>
-          {restaurantes.map((restaurante) => (
+          {restaurantes?.map((restaurante) => (
             <CardRestaurante key={restaurante.id} {...restaurante} />
           ))}
         </Grid>

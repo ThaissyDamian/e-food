@@ -1,12 +1,14 @@
-import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { useState } from 'react'
 import HeaderPerfil from '../../components/HeaderPerfil'
 import Footer from '../../components/Footer'
 import CardProduto from '../../components/CardProduto'
-import { Container, ListaPratos } from './styles'
 import ContainerModal from '../../components/ContainerModal'
+import { Container, ListaPratos } from './styles'
 
-type Produto = {
+import { useGetCardapioQuery } from '../../services/api'
+
+export type Produto = {
   id: number
   nome: string
   descricao: string
@@ -15,7 +17,7 @@ type Produto = {
   porcao: string
 }
 
-type Restaurante = {
+export type RestauranteDetalhe = {
   id: number
   titulo: string
   tipo: string
@@ -25,16 +27,14 @@ type Restaurante = {
 
 const RestaurantePage = () => {
   const { id } = useParams()
-  const [restaurante, setRestaurante] = useState<Restaurante | null>(null)
+  const { data: restaurante, isLoading } = useGetCardapioQuery(id ?? '')
   const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(
     null
   )
 
-  useEffect(() => {
-    fetch(`https://api-ebac.vercel.app/api/efood/restaurantes/${id}`)
-      .then((response) => response.json())
-      .then((res) => setRestaurante(res))
-  }, [id])
+  if (isLoading) {
+    return <p>Carregando cardápio...</p>
+  }
 
   return (
     <>
@@ -47,7 +47,7 @@ const RestaurantePage = () => {
           />
           <Container>
             <ListaPratos>
-              {restaurante.cardapio.map((produto) => (
+              {restaurante.cardapio.map((produto: Produto) => (
                 <CardProduto
                   key={produto.id}
                   nome={produto.nome}
