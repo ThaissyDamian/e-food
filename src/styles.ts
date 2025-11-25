@@ -34,4 +34,8 @@ export const Container = styled.div`
   @media (max-width: ${breakpoints.desktop}) {
     max-width: 80%;
   }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    padding: 0 8px;
+  }
 `

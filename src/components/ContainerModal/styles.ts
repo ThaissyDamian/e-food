@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const Overlay = styled.div`
   position: fixed;
@@ -25,6 +25,19 @@ export const CardModal = styled.div`
   background-color: ${cores.coral};
   color: ${cores.branco};
   padding: 32px;
+  overflow: hidden;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    width: 90%;
+    height: auto;
+    padding: 24px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 90%;
+    height: auto;
+    padding: 16px;
+  }
 
   header {
     display: flex;
@@ -38,6 +51,11 @@ export const CardModal = styled.div`
       width: 16px;
       height: 16px;
       cursor: pointer;
+
+      @media (max-width: ${breakpoints.tablet}) {
+        top: 8px;
+        right: 8px;
+      }
     }
   }
 
@@ -48,6 +66,12 @@ export const CardModal = styled.div`
     border: none;
     padding: 4px 8px;
     cursor: pointer;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      font-size: 12px;
+      padding: 6px;
+      width: 100%;
+    }
   }
 `
 
@@ -56,10 +80,30 @@ export const ContainerIterno = styled.div`
   gap: 32px;
   align-items: center;
 
+  @media (max-width: ${breakpoints.desktop}) {
+    gap: 24px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
   img {
     width: 280px;
     height: 280px;
     object-fit: cover;
+
+    @media (max-width: ${breakpoints.desktop}) {
+      width: 240px;
+      height: 240px;
+    }
+
+    @media (max-width: ${breakpoints.tablet}) {
+      width: 200px;
+      height: 200px;
+    }
   }
 
   h2 {
@@ -67,6 +111,11 @@ export const ContainerIterno = styled.div`
     font-weight: bold;
     color: ${cores.branco};
     margin-bottom: 16px;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      font-size: 16px;
+      text-align: center;
+    }
   }
 
   p {
@@ -74,5 +123,10 @@ export const ContainerIterno = styled.div`
     color: ${cores.branco};
     line-height: 22px;
     margin-bottom: 16px;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      font-size: 13px;
+      text-align: center;
+    }
   }
 `

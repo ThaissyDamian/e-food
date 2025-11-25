@@ -10,8 +10,9 @@ import {
   ImagemInner,
   BannerInner
 } from './styles'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
+import { open } from '../../store/reducers/cart'
 
 type Props = {
   tipo: string
@@ -21,6 +22,11 @@ type Props = {
 
 function HeaderPerfil({ tipo, titulo, capa }: Props) {
   const { items } = useSelector((state: RootReducer) => state.cart)
+  const dispatch = useDispatch()
+
+  const openCart = () => {
+    dispatch(open())
+  }
   return (
     <>
       <Imagem>
@@ -29,7 +35,13 @@ function HeaderPerfil({ tipo, titulo, capa }: Props) {
           <Link to="/">
             <img src={logo} alt="Efood" />
           </Link>
-          <Text className="right">{items.length} produto(s) no carrinho</Text>
+          <Text
+            className="right"
+            onClick={openCart}
+            style={{ cursor: 'pointer' }}
+          >
+            {items.length} produto(s) no carrinho
+          </Text>
         </ImagemInner>
       </Imagem>
       <Banner

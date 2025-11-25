@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 import close from '../../assets/image/lixeira.png'
 
 export const Overlay = styled.div`
@@ -31,6 +31,10 @@ export const Sidebar = styled.aside`
   max-width: 360px;
   width: 100%;
   padding: 40px 16px 0 16px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 100%;
+  }
 `
 
 export const Prices = styled.p`

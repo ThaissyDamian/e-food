@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 import headerimg from '../../assets/image/fundo.svg'
 
 export const Imagem = styled.div`
@@ -10,6 +10,20 @@ export const Imagem = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    height: 160px;
+    padding: 0 24px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    height: auto;
+    padding: 16px;
+    gap: 12px;
+    text-align: center;
+  }
 `
 export const ImagemInner = styled.div`
   height: 100%;
@@ -19,6 +33,21 @@ export const ImagemInner = styled.div`
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    text-align: center;
+    padding: 16px;
+  }
 `
 export const Logo = styled.img`
   display: block;
@@ -26,6 +55,14 @@ export const Logo = styled.img`
   width: 125px;
   height: 57px;
   justify-self: center;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    width: 100px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 80px;
+  }
 `
 
 export const Text = styled.p`
@@ -41,6 +78,15 @@ export const Text = styled.p`
   &.right {
     justify-self: end;
   }
+
+  @media (max-width: ${breakpoints.desktop}) {
+    font-size: 16px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 14px;
+    justify-self: center;
+  }
 `
 
 export const Banner = styled.div`
@@ -50,6 +96,14 @@ export const Banner = styled.div`
   background-size: cover;
   background-position: center;
   display: flex;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    height: 220px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    height: 180px;
+  }
 `
 export const BannerInner = styled.div`
   height: 100%;
@@ -60,6 +114,16 @@ export const BannerInner = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    padding: 16px 24px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    padding: 12px 16px;
+    align-items: center;
+    text-align: center;
+  }
 `
 export const TextBanner = styled.span`
   font-family: 'Roboto', sans-serif;
@@ -69,6 +133,16 @@ export const TextBanner = styled.span`
   color: ${cores.branco};
   display: block;
   margin-bottom: 152px;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    font-size: 26px;
+    margin-bottom: 100px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 20px;
+    margin-bottom: 60px;
+  }
 `
 
 export const RestaurantName = styled.h2`
@@ -79,4 +153,14 @@ export const RestaurantName = styled.h2`
   width: 1024px;
   color: ${cores.branco};
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+
+  @media (max-width: ${breakpoints.desktop}) {
+    font-size: 26px;
+    width: 100%;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 20px;
+    width: 100%;
+  }
 `

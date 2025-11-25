@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const Card = styled.div`
   background-color: ${cores.branco};
@@ -7,6 +7,15 @@ export const Card = styled.div`
   border-radius: 8px;
   overflow: hidden;
   position: relative;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    border-radius: 6px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    margin: 0 auto;
+    max-width: 90%;
+  }
 `
 
 export const Imagem = styled.img`
@@ -14,6 +23,14 @@ export const Imagem = styled.img`
   height: 181px;
   object-fit: cover;
   display: block;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    height: 160px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    height: 140px;
+  }
 `
 
 export const TagDestaque = styled.div`
@@ -25,11 +42,25 @@ export const TagDestaque = styled.div`
   gap: 8px;
   z-index: 2;
   pointer-events: none;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    top: 8px;
+    right: 8px;
+    gap: 4px;
+  }
 `
 
 export const Conteudo = styled.div`
   padding: 16px;
   background: ${cores.branco};
+
+  @media (max-width: ${breakpoints.desktop}) {
+    padding: 12px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    padding: 10px;
+  }
 `
 
 export const Linha = styled.div`
@@ -37,6 +68,12 @@ export const Linha = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 8px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
 `
 
 export const Titulo = styled.h3`
@@ -44,6 +81,15 @@ export const Titulo = styled.h3`
   color: ${cores.coral};
   margin: 0;
   flex: 1;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    font-size: 16px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 14px;
+    text-align: left;
+  }
 `
 
 export const Nota = styled.span`
@@ -61,6 +107,15 @@ export const Nota = styled.span`
     width: 16px;
     height: 16px;
   }
+
+  @media (max-width: ${breakpoints.desktop}) {
+    font-size: 16px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 14px;
+    padding: 2px 6px;
+  }
 `
 
 export const Descricao = styled.p`
@@ -68,6 +123,15 @@ export const Descricao = styled.p`
   color: ${cores.coral};
   margin: 8px 0 16px;
   line-height: 1.4;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    font-size: 13px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 12px;
+    margin: 6px 0 12px;
+  }
 `
 export const Botao = styled.button`
   background-color: ${cores.coral};
@@ -81,5 +145,16 @@ export const Botao = styled.button`
 
   &:hover {
     opacity: 0.9;
+  }
+
+  @media (max-width: ${breakpoints.desktop}) {
+    font-size: 13px;
+    padding: 6px 14px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 12px;
+    padding: 6px 12px;
+    width: 100%;
   }
 `
