@@ -1,13 +1,13 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 type TagProps = {
   size: 'big' | 'small'
 }
 
 export const TagContainer = styled.div<TagProps>`
-  background-color: ${cores.coral};
-  color: ${cores.bege};
+  background-color: ${colors.coral};
+  color: ${colors.beige};
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
   font-weight: 700;
@@ -42,8 +42,8 @@ export const Nota = styled.span`
   position: absolute;
   top: 16px;
   right: 16px;
-  background-color: ${cores.branco};
-  color: ${cores.coral};
+  background-color: ${colors.white};
+  color: ${colors.coral};
   font-size: 14px;
   font-weight: bold;
   padding: 4px 8px;

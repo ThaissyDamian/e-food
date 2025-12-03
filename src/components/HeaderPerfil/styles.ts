@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 import headerimg from '../../assets/image/fundo.svg'
 
 export const Imagem = styled.div`
   width: 100%;
   height: 186px;
-  background-color: ${cores.bege};
+  background-color: ${colors.beige};
   background-image: url(${headerimg});
   background-repeat: no-repeat;
   background-size: cover;
@@ -68,7 +68,7 @@ export const Logo = styled.img`
 export const Text = styled.p`
   font-size: 18px;
   font-weight: bold;
-  color: ${cores.coral};
+  color: ${colors.coral};
   margin: 0;
 
   &.left {
@@ -130,7 +130,7 @@ export const TextBanner = styled.span`
   font-weight: 100;
   font-size: 32px;
   line-height: 100%;
-  color: ${cores.branco};
+  color: ${colors.white};
   display: block;
   margin-bottom: 152px;
 
@@ -151,7 +151,7 @@ export const RestaurantName = styled.h2`
   font-size: 32px;
   line-height: 100%;
   width: 1024px;
-  color: ${cores.branco};
+  color: ${colors.white};
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 
   @media (max-width: ${breakpoints.desktop}) {

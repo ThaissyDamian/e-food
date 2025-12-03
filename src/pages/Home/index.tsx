@@ -1,10 +1,12 @@
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
-import { Container } from '../../styles'
-import { Grid } from './styles'
-import CardRestaurante from '../../components/CardRestaurante'
+import CardRestaurante from '../../components/CardRestaurant'
+import Loader from '../../Loader'
 
 import { useGetRestaurantesQuery } from '../../services/api'
+
+import { Container } from '../../styles'
+import { Grid } from './styles'
 
 export type RestauranteLista = {
   id: number
@@ -20,7 +22,7 @@ const Home = () => {
   const { data: restaurantes, isLoading } = useGetRestaurantesQuery()
 
   if (isLoading) {
-    return <p>Carregando restaurantes...</p>
+    return <Loader />
   }
   return (
     <>

@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const Card = styled.div`
-  background-color: ${cores.branco};
-  border: 1px solid ${cores.coral};
+  background-color: ${colors.white};
+  border: 1px solid ${colors.coral};
   border-radius: 8px;
   overflow: hidden;
   position: relative;
@@ -52,7 +52,7 @@ export const TagDestaque = styled.div`
 
 export const Conteudo = styled.div`
   padding: 16px;
-  background: ${cores.branco};
+  background: ${colors.white};
 
   @media (max-width: ${breakpoints.desktop}) {
     padding: 12px;
@@ -78,7 +78,7 @@ export const Linha = styled.div`
 
 export const Titulo = styled.h3`
   font-size: 18px;
-  color: ${cores.coral};
+  color: ${colors.coral};
   margin: 0;
   flex: 1;
 
@@ -97,9 +97,9 @@ export const Nota = styled.span`
   align-items: center;
   gap: 4px;
   font-weight: bold;
-  color: ${cores.coral};
+  color: ${colors.coral};
   font-size: 18px;
-  background: ${cores.branco};
+  background: ${colors.white};
   padding: 4px 8px;
   border-radius: 8px;
 
@@ -120,7 +120,7 @@ export const Nota = styled.span`
 
 export const Descricao = styled.p`
   font-size: 14px;
-  color: ${cores.coral};
+  color: ${colors.coral};
   margin: 8px 0 16px;
   line-height: 1.4;
 
@@ -134,8 +134,8 @@ export const Descricao = styled.p`
   }
 `
 export const Botao = styled.button`
-  background-color: ${cores.coral};
-  color: ${cores.bege};
+  background-color: ${colors.coral};
+  color: ${colors.beige};
   border: none;
   padding: 8px 16px;
   border-radius: 4px;

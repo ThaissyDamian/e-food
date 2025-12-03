@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const ContainerFooter = styled.section`
-  background-color: ${cores.bege};
+  background-color: ${colors.beige};
   margin-top: 120px;
 
   @media (max-width: ${breakpoints.desktop}) {
@@ -54,7 +54,7 @@ export const ListLogos = styled.ul`
 `
 
 export const Text = styled.p`
-  color: ${cores.coral};
+  color: ${colors.coral};
   font-size: 10px;
   width: 480px;
   text-align: center;

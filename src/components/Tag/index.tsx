@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+
 import { TagContainer, TagText } from './styles'
 
 export type Props = {

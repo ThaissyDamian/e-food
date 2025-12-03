@@ -1,10 +1,11 @@
 import styled, { createGlobalStyle } from 'styled-components'
 
-export const cores = {
-  branco: '#FFFFFF',
-  brancoRosado: '#FFF8F2',
+export const colors = {
+  white: '#FFFFFF',
+  rosyWhite: '#FFF8F2',
   coral: '#E66767',
-  bege: '#FFEBD9'
+  beige: '#FFEBD9',
+  darkGray: '#4B4B4B'
 }
 export const breakpoints = {
   desktop: '1024px',
@@ -20,8 +21,8 @@ export const GlobalCss = createGlobalStyle`
   }
 
   body {
-    background-color: ${cores.brancoRosado};
-    color: ${cores.coral};
+    background-color: ${colors.rosyWhite};
+    color: ${colors.coral};
 
   }
 

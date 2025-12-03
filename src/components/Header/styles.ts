@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const Imagem = styled.div`
   width: 100%;
@@ -44,7 +44,7 @@ export const Text = styled.p`
   font-weight: bold;
   font-size: 36px;
   line-height: 100%;
-  color: ${cores.coral};
+  color: ${colors.coral};
   margin-top: 138px;
   max-width: 550px;
   text-align: center;

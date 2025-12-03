@@ -1,7 +1,11 @@
-import { CardModal, Backdrop, ContainerIterno, Overlay } from './styles'
-import fechar from '../../assets/image/close.png'
 import { useDispatch } from 'react-redux'
+
 import { add, open } from '../../store/reducers/cart'
+import close from '../../assets/image/close.png'
+
+import { parseToBrl } from '../../utils'
+
+import * as S from './styles'
 
 type Produto = {
   id: number
@@ -18,12 +22,6 @@ type Props = {
   isVisible?: boolean
 }
 
-export const formataPreco = (preco = 0) => {
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format(preco)
-}
 const ContainerModal = ({ produto, onClose, isVisible = true }: Props) => {
   const dispatch = useDispatch()
 
@@ -34,27 +32,27 @@ const ContainerModal = ({ produto, onClose, isVisible = true }: Props) => {
   }
 
   return (
-    <Overlay className={isVisible ? 'visivel' : ''}>
-      <Backdrop className="overlay" onClick={onClose} />
+    <S.Overlay className={isVisible ? 'visivel' : ''}>
+      <S.Backdrop className="overlay" onClick={onClose} />
 
-      <CardModal>
+      <S.CardModal>
         <header>
-          <img src={fechar} alt="icone de fechar" onClick={onClose} />
+          <img src={close} alt="icone de fechar" onClick={onClose} />
         </header>
 
-        <ContainerIterno>
+        <S.ContainerIterno>
           <img src={produto.foto} alt={produto.nome} />
           <div>
             <h2>{produto.nome}</h2>
             <p>{produto.descricao}</p>
             <p>Serve: {produto.porcao}</p>
             <button onClick={addToCart}>
-              Adicionar ao carrinho - {formataPreco(produto.preco)}
+              Adicionar ao carrinho - {parseToBrl(produto.preco)}
             </button>
           </div>
-        </ContainerIterno>
-      </CardModal>
-    </Overlay>
+        </S.ContainerIterno>
+      </S.CardModal>
+    </S.Overlay>
   )
 }
 

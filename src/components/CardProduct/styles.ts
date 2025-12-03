@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const Card = styled.div`
-  background-color: ${cores.coral};
-  border: 1px solid ${cores.coral};
+  background-color: ${colors.coral};
+  border: 1px solid ${colors.coral};
   overflow: hidden;
   width: 100%;
   max-width: 320px;
@@ -53,7 +53,7 @@ export const Conteudo = styled.div`
 export const Nome = styled.h3`
   font-size: 18px;
   font-weight: bold;
-  color: ${cores.bege};
+  color: ${colors.beige};
   margin-bottom: 8px;
 
   @media (max-width: ${breakpoints.desktop}) {
@@ -69,7 +69,7 @@ export const Nome = styled.h3`
 export const Descricao = styled.p`
   font-size: 14px;
   line-height: 20px;
-  color: ${cores.bege};
+  color: ${colors.beige};
   margin-bottom: 16px;
 
   @media (max-width: ${breakpoints.desktop}) {
@@ -85,8 +85,8 @@ export const Descricao = styled.p`
 `
 
 export const Botao = styled.button`
-  background-color: ${cores.bege};
-  color: ${cores.coral};
+  background-color: ${colors.beige};
+  color: ${colors.coral};
   border: none;
   padding: 4px;
   cursor: pointer;

@@ -1,18 +1,13 @@
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+
 import logo from '../../assets/image/logo.svg'
 import headerimg from '../../assets/image/fundo.svg'
-import {
-  Imagem,
-  Text,
-  Banner,
-  RestaurantName,
-  TextBanner,
-  ImagemInner,
-  BannerInner
-} from './styles'
-import { useDispatch, useSelector } from 'react-redux'
+
 import { RootReducer } from '../../store'
 import { open } from '../../store/reducers/cart'
+
+import * as S from './styles'
 
 type Props = {
   tipo: string
@@ -29,22 +24,23 @@ function HeaderPerfil({ tipo, titulo, capa }: Props) {
   }
   return (
     <>
-      <Imagem>
-        <ImagemInner>
-          <Text className="left">Restaurantes</Text>
+      <S.Imagem>
+        <S.ImagemInner>
+          <S.Text className="left">Restaurantes</S.Text>
           <Link to="/">
             <img src={logo} alt="Efood" />
           </Link>
-          <Text
+          <S.Text
+            role="button"
             className="right"
             onClick={openCart}
             style={{ cursor: 'pointer' }}
           >
             {items.length} produto(s) no carrinho
-          </Text>
-        </ImagemInner>
-      </Imagem>
-      <Banner
+          </S.Text>
+        </S.ImagemInner>
+      </S.Imagem>
+      <S.Banner
         style={{
           backgroundImage: `
       linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.45)),
@@ -56,11 +52,11 @@ function HeaderPerfil({ tipo, titulo, capa }: Props) {
           backgroundPosition: 'center, center, top left'
         }}
       >
-        <BannerInner>
-          <TextBanner>{tipo}</TextBanner> {/* Italiana */}
-          <RestaurantName>{titulo}</RestaurantName>
-        </BannerInner>
-      </Banner>
+        <S.BannerInner>
+          <S.TextBanner>{tipo}</S.TextBanner> {/* Italiana */}
+          <S.RestaurantName>{titulo}</S.RestaurantName>
+        </S.BannerInner>
+      </S.Banner>
     </>
   )
 }

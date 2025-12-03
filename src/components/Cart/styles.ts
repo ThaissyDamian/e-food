@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 import close from '../../assets/image/lixeira.png'
 
 export const Overlay = styled.div`
@@ -26,11 +26,18 @@ export const CartContainer = styled.div`
   }
 `
 export const Sidebar = styled.aside`
-  background-color: ${cores.coral};
+  background-color: ${colors.coral};
   z-index: 1;
   max-width: 360px;
   width: 100%;
   padding: 40px 16px 0 16px;
+
+  .empty-text {
+    font-size: 14px;
+    line-height: 22px;
+    color: ${colors.beige};
+    text-align: center;
+  }
 
   @media (max-width: ${breakpoints.tablet}) {
     width: 100%;
@@ -40,7 +47,7 @@ export const Sidebar = styled.aside`
 export const Prices = styled.p`
   font-weight: bold;
   font-size: 14px;
-  color: ${cores.bege};
+  color: ${colors.beige};
   margin-bottom: 24px;
   margin-top: 16px;
   margin-top: 40px;
@@ -48,15 +55,15 @@ export const Prices = styled.p`
   justify-content: space-between;
 
   .span {
-    color: ${cores.bege};
+    color: ${colors.beige};
   }
 `
-export const CartItem = styled.li`
+export const CartItemStyle = styled.li`
   display: flex;
   gap: 16px;
   padding: 8px;
   position: relative;
-  background-color: ${cores.bege};
+  background-color: ${colors.beige};
   margin: 8px 0;
 
   img {
@@ -66,7 +73,7 @@ export const CartItem = styled.li`
   }
 
   h3 {
-    color: ${cores.coral};
+    color: ${colors.coral};
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 16px;
@@ -74,14 +81,14 @@ export const CartItem = styled.li`
 
   span {
     display: block;
-    color: ${cores.coral};
+    color: ${colors.coral};
     font-size: 14px;
   }
 
   button {
     position: absolute;
     background-image: url(${close});
-    background-color: ${cores.bege};
+    background-color: ${colors.beige};
     width: 16px;
     height: 16px;
     border: none;
@@ -94,8 +101,8 @@ export const Botao = styled.button`
   width: 100%;
   padding: 4px;
   border: none;
-  background-color: ${cores.bege};
-  color: ${cores.coral};
+  background-color: ${colors.beige};
+  color: ${colors.coral};
   font-weight: bold;
   font-size: 14px;
   cursor: pointer;

@@ -1,12 +1,15 @@
 import { useParams } from 'react-router-dom'
 import { useState } from 'react'
+
 import HeaderPerfil from '../../components/HeaderPerfil'
 import Footer from '../../components/Footer'
-import CardProduto from '../../components/CardProduto'
+import CardProduto from '../../components/CardProduct'
 import ContainerModal from '../../components/ContainerModal'
-import { Container, ListaPratos } from './styles'
+import Loader from '../../Loader'
 
 import { useGetCardapioQuery } from '../../services/api'
+
+import * as S from './styles'
 
 export type Produto = {
   id: number
@@ -33,7 +36,7 @@ const RestaurantePage = () => {
   )
 
   if (isLoading) {
-    return <p>Carregando cardápio...</p>
+    return <Loader />
   }
 
   return (
@@ -45,8 +48,8 @@ const RestaurantePage = () => {
             titulo={restaurante.titulo}
             capa={restaurante.capa}
           />
-          <Container>
-            <ListaPratos>
+          <S.Container>
+            <S.ListaPratos>
               {restaurante.cardapio.map((produto: Produto) => (
                 <CardProduto
                   key={produto.id}
@@ -56,8 +59,8 @@ const RestaurantePage = () => {
                   onAdd={() => setProdutoSelecionado(produto)}
                 />
               ))}
-            </ListaPratos>
-          </Container>
+            </S.ListaPratos>
+          </S.Container>
           {produtoSelecionado && (
             <ContainerModal
               produto={produtoSelecionado}

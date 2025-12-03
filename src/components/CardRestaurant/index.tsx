@@ -1,17 +1,9 @@
-import {
-  Card,
-  Imagem,
-  Conteudo,
-  Titulo,
-  Descricao,
-  Botao,
-  TagDestaque,
-  Linha,
-  Nota
-} from './styles'
 import { useNavigate } from 'react-router-dom'
+
 import Tag from '../Tag'
 import estrela from '../../assets/image/estrela.png'
+
+import * as S from './styles'
 
 type Props = {
   id: number
@@ -41,28 +33,30 @@ const CardRestaurante = ({
   const navigate = useNavigate()
 
   return (
-    <Card>
+    <S.Card>
       <div style={{ position: 'relative' }}>
-        <Imagem src={capa} alt={titulo} />
-        <TagDestaque>
+        <S.Imagem src={capa} alt={titulo} />
+        <S.TagDestaque>
           {destacado && <Tag size="big">Destaque da semana</Tag>}
           <Tag size="small">{tipo}</Tag>
-        </TagDestaque>
+        </S.TagDestaque>
       </div>
 
-      <Conteudo>
-        <Linha>
-          <Titulo>{titulo}</Titulo>
-          <Nota>
+      <S.Conteudo>
+        <S.Linha>
+          <S.Titulo>{titulo}</S.Titulo>
+          <S.Nota>
             {avaliacao.toFixed(1)}
             <img src={estrela} alt="estrela" />
-          </Nota>
-        </Linha>
+          </S.Nota>
+        </S.Linha>
 
-        <Descricao>{getDescricao(descricao)}</Descricao>
-        <Botao onClick={() => navigate(`/restaurante/${id}`)}>Saiba mais</Botao>
-      </Conteudo>
-    </Card>
+        <S.Descricao>{getDescricao(descricao)}</S.Descricao>
+        <S.Botao onClick={() => navigate(`/restaurante/${id}`)}>
+          Saiba mais
+        </S.Botao>
+      </S.Conteudo>
+    </S.Card>
   )
 }
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const Overlay = styled.div`
   position: fixed;
@@ -22,8 +22,8 @@ export const CardModal = styled.div`
   transform: translate(-50%, -50%);
   width: 1024px;
   height: 344px;
-  background-color: ${cores.coral};
-  color: ${cores.branco};
+  background-color: ${colors.coral};
+  color: ${colors.white};
   padding: 32px;
   overflow: hidden;
 
@@ -60,8 +60,8 @@ export const CardModal = styled.div`
   }
 
   button {
-    background-color: ${cores.bege};
-    color: ${cores.coral};
+    background-color: ${colors.beige};
+    color: ${colors.coral};
     font-weight: bold;
     border: none;
     padding: 4px 8px;
@@ -109,7 +109,7 @@ export const ContainerIterno = styled.div`
   h2 {
     font-size: 18px;
     font-weight: bold;
-    color: ${cores.branco};
+    color: ${colors.white};
     margin-bottom: 16px;
 
     @media (max-width: ${breakpoints.tablet}) {
@@ -120,7 +120,7 @@ export const ContainerIterno = styled.div`
 
   p {
     font-size: 14px;
-    color: ${cores.branco};
+    color: ${colors.white};
     line-height: 22px;
     margin-bottom: 16px;
 
